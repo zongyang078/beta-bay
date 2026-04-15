@@ -2,16 +2,13 @@
 <html lang="en">
     <head>
         <!-- head
-
         Purpose:
         - Title used here shows up in the browser tab
         - Link to the favicon (small image that appears in the browser tab)
         - Link to the CSS file (used to style the webpage)
-
-        When To Modify:
-        - [ ] Project 2 (REQUIRED FEATURE) 
-        - [ ] Project 2 (STRETCH FEATURE) (favicon)
-        - [ ] Any time after
+        Done:
+        - [x] Project 2 (REQUIRED FEATURE)
+        - [x] Project 2 (STRETCH FEATURE) (favicon)
         -->
         <title>Beta Bay</title>
         <link rel="icon" href="./img/logo-betabay.svg" type="image/svg+xml">
@@ -24,12 +21,11 @@
         Purpose:
         - Navigation bar that allows users to jump to different sections of the webpage
         - Also holds buttons for user settings (dark mode, reduce motion)
-
-        When To Modify:
+        Done:
         - [x] Project 4 (REQUIRED FEATURE)
-        - [ ] Project 5 (REQUIRED FEATURE) 
-        - [ ] Project 8 (STRETCH FEATURE) 
-        - [ ] Any time between / after
+        - [x] Project 5 (REQUIRED FEATURE)
+        TODO:
+        - [ ] Project 8 (STRETCH FEATURE)
         -->
         <div class="navbar">
             <ul>
@@ -37,20 +33,18 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#schedule">Event Schedule</a></li>
                 <li><a href="#links">Links</a></li>
+                <li><button id="theme-button">Toggle Dark Mode</button></li>
             </ul>
         </div>
 
         <!-- headings
-
         Purpose:
         - Main header section of the webpage
-        - Contains the title, subtitle, image, and key buttons for the webpage
-
-        When To Modify:
-        - [ ] Project 2 (REQUIRED FEATURE) 
-        - [ ] Project 3 (REQUIRED FEATURE) 
-        - [ ] Project 4 (REQUIRED FEATURE) 
-        - [ ] Any time after
+        - Contains the title, subtitle, image, and key buttons
+        Done:
+        - [x] Project 2 (REQUIRED FEATURE)
+        - [x] Project 3 (REQUIRED FEATURE)
+        - [x] Project 4 (REQUIRED FEATURE)
         -->
        <div class="header-container" id="home">
             <div class="header-logo">
@@ -67,17 +61,14 @@
         </div>
         
         <!-- about
-
         Purpose:
         - Section for general info about the event
-        - Contains a video, description, and key points about the event
-
-        When To Modify:
-        - [ ] Project 2 (REQUIRED FEATURE) 
-        - [ ] Project 2 (STRETCH FEATURE) 
-        - [ ] Project 4 (STRETCH FEATURE) 
-        - [ ] Any time between / after
-        --> 
+        - Contains a description and key points about the event
+        Done:
+        - [x] Project 2 (REQUIRED FEATURE)
+        - [x] Project 2 (STRETCH FEATURE)
+        - [x] Project 4 (STRETCH FEATURE)
+        -->
         <h2 id="about">About the Meetup</h2>
         <p> Beta Bay is a weekly climbing meetup for anyone who loves getting vertical 
             in the Bay Area. Whether you're flashing V6s or just learning to trust your 
@@ -96,16 +87,13 @@
         </ul>
 
         <!-- schedule
-
         Purpose:
         - Section for specific info about the event's schedule
         - Contains images and descriptions of each activity
-
-        When To Modify:
-        - [ ] Project 2 (REQUIRED FEATURE) 
-        - [ ] Project 4 (STRETCH FEATURE) 
-        - [ ] Any time between / after
-        --> 
+        Done:
+        - [x] Project 2 (REQUIRED FEATURE)
+        - [x] Project 4 (STRETCH FEATURE)
+        -->
          <h2 id="schedule">Event Schedule</h2>
 
         <div class="schedule-container">
@@ -148,19 +136,63 @@
             <li>Bring water, chalk, and a good attitude</li>
         </ul>
 
-        <!-- rsvp [PLACEHOLDER] [ADDED IN UNIT 6] -->
-        <!-- success modal [PLACEHOLDER] [ADDED IN UNIT 9] --> 
+        <!-- rsvp
+        Purpose:
+        - Section for users to sign up for the event
+        - Contains a form for users to input their information,
+          and a list of other users who have signed up
+        Done:
+        - [x] Project 6 (REQUIRED FEATURE)
+        - [x] Project 6 (STRETCH FEATURE)
+        -->
+        <div id="rsvp">
+            <h2>RSVP</h2>
+            <p id="rsvp-count">🧗 3 climbers are signed up!</p>
+            <div class="rsvp-container">
+                <div class="rsvp-para">
+                    <p>Whether you're a seasoned crusher or just getting started, Beta Bay
+                    welcomes you to the wall. Sign up below to join our next climbing
+                    session — we'll bring the beta, you bring the chalk and stoke. Spots
+                    fill up fast, so lock yours in now!</p>
+                </div>
+                <div class="rsvp-participants">
+                    <p>🪨 Alex from San Jose has RSVP'd.</p>
+                    <p>🪨 Mia from Sunnyvale has RSVP'd.</p>
+                    <p>🪨 Jordan from Palo Alto has RSVP'd.</p>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <form id="rsvp-form" title="rsvp-form">
+                    <div class="form-group">
+                        <label for="rsvp-name">Name:</label>
+                        <input type="text" id="rsvp-name" placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="rsvp-state">Home City:</label>
+                        <input type="text" id="rsvp-state" placeholder="e.g. San Jose">
+                    </div>
+                    <div class="form-group">
+                        <label for="rsvp-email">Email:</label>
+                        <input type="email" id="rsvp-email" placeholder="you@example.com">
+                    </div>
+                </form>
+                <button id="rsvp-button">Submit RSVP</button>
+            </div>
+        </div>
+
+        <!-- success modal
+        TODO:
+        - [ ] Project 9 (REQUIRED FEATURE)
+        -->
 
         <!-- links
-
         Purpose:
         - Links to other resources related to the event
-
-        When To Modify:
-        - [ ] Project 2 (STRETCH FEATURE) 
-        - [ ] Project 4 (STRETCH FEATURE) 
-        - [ ] Any time between / after
-        --> 
+        Done:
+        - [x] Project 2 (STRETCH FEATURE)
+        - [x] Project 4 (STRETCH FEATURE)
+        -->
         <h2 id="links">Links</h2>
 
         <div class="links-container">
@@ -179,14 +211,18 @@
             </a>
         </div>
             
-        <!-- footer [PLACEHOLDER] [ADDED IN UNIT 3] -->
+        <!-- footer
+        Done:
+        - [x] Project 3 (STRETCH FEATURE)
+        -->
          <div class="footer">
-            <a href="mailto:betabay.climb@gmail.com">Contact Us</a>
+            <a href="/cdn-cgi/l/email-protection#60020514010201194e030c090d0220070d01090c4e030f0d">Contact Us</a>
             <a href="https://www.instagram.com" target="_blank">@betabayclimb</a>
             <span>Organized by Zoe</span>
         </div>
 
-        <!-- script [PLACEHOLDER] [ADDED IN UNIT 5] -->
+        <!-- script — Added in Unit 5 -->
+        <script src="index.js"></script>
 
     </body>
 </html>
