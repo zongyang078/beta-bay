@@ -149,7 +149,7 @@ h2 ~ img {
 }
 
 #header-img {
-    height: 280px;
+    height: 200px;
     width: auto;
     display: block;
 }
@@ -171,6 +171,8 @@ h2 ~ img {
     color: var(--moss);
     margin: 0;
     font-weight: normal;
+    text-align: left;
+    white-space: nowrap;
 }
 
 .header-buttons {
@@ -181,17 +183,20 @@ h2 ~ img {
 }
 
 .header-button {
+    display: inline-block;
     background-color: var(--accent-color-dark);
-    color: white;
+    color: white !important;
     font-size: 14px;
     padding: 8px 18px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    text-decoration: none !important;
 }
 
 .header-button:hover {
-    background-color: var(--moss);
+    background-color: var(--moss) !important;
+    color: white !important;
 }
 
 .header-button:active {
@@ -226,11 +231,31 @@ h2 ~ img {
     color: var(--accent-color-light);
     text-align: center;
     padding: 14px 0;
+    position: relative;   /* needed for ::after positioning */
+}
+
+/* Underline slide-in animation on hover */
+.navbar ul li a::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: #f4a261;   /* brighter orange, more visible on dark bg */
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 .navbar ul li a:hover {
-    background-color: var(--accent-color-dark);
     color: white;
+    background-color: transparent;  /* remove old block hover */
+}
+
+.navbar ul li a:hover::after {
+    transform: scaleX(1);
 }
 
 .navbar ul li a:active {
@@ -238,7 +263,8 @@ h2 ~ img {
     color: var(--terracotta);
 }
 
-.navbar ul li:last-child {
+.navbar ul li:last-child,
+.navbar ul li:nth-last-child(2) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -276,6 +302,7 @@ h2 ~ img {
 }
 
 .schedule-card {
+    display: block;
     background-color: var(--accent-color-light);
     border-radius: 12px;
     padding: 24px;
@@ -283,6 +310,23 @@ h2 ~ img {
     min-width: 220px;
     max-width: 300px;
     border: 1px solid var(--sand);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none !important;
+    color: var(--text-color) !important;
+    cursor: pointer;
+}
+
+.schedule-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card-link {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--moss);
+    font-weight: bold;
 }
 
 .schedule-card img {
@@ -297,10 +341,12 @@ h2 ~ img {
     font-size: 17px;
     margin-top: 0;
     text-align: left;
+    color: var(--text-color) !important;
 }
 
 .schedule-card p {
     font-size: 14px;
+    color: var(--text-color) !important;
 }
 
 .badge {
@@ -384,10 +430,118 @@ a.block p {
     margin: 0px 20px;
 }
 
+/*** Scroll Fade-in Animation — Going Further ***/
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*** Safety Grid & FAQ — Going Further ***/
+.safety-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.safety-item {
+    background-color: var(--accent-color-light);
+    border: 1px solid var(--sand);
+    border-radius: 12px;
+    padding: 20px 24px;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+    max-width: 180px;
+}
+
+.safety-icon {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.safety-item p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.safety-item small {
+    color: var(--stone);
+    font-size: 12px;
+}
+
+.faq-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.faq-item {
+    background-color: var(--accent-color-light);
+    border: 1px solid var(--sand);
+    border-radius: 10px;
+    padding: 16px 20px;
+    cursor: pointer;
+}
+
+.faq-item summary {
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--text-color);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-item summary::after {
+    content: '+';
+    font-size: 20px;
+    color: var(--moss);
+    transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.faq-item p {
+    margin: 12px 0 0;
+    font-size: 14px;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Dark mode */
+.dark-mode .safety-item,
+.dark-mode .faq-item {
+    background-color: #243526;
+    border-color: #3a5a3c;
+}
+
+.dark-mode .safety-item p,
+.dark-mode .faq-item summary,
+.dark-mode .faq-item p {
+    color: #e8e2d5;
+}
+
 /*** RSVP Section
   Done:
   - [x] Project 6 (REQUIRED FEATURE)
   - [x] Project 7 (REQUIRED FEATURE)
+  - [x] Project 9 (REQUIRED FEATURE)
 ***/
 
 #rsvp {
@@ -568,15 +722,129 @@ a.block p {
     }
 }
 
-/*** Animations
-  TODO:
-  - [ ] Project 8 (REQUIRED FEATURE)
-***/
+/* Stretch: Reduce Motion button in navbar — Added in Project 9 */
+#reduce-motion-button {
+    background: var(--stone);
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 8px 18px;
+    margin: 0;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
 
-/*** Success Modal
-  TODO:
-  - [ ] Project 9 (REQUIRED FEATURE)
+#reduce-motion-button:hover {
+    background: var(--moss);
+    transform: scale(1.05);
+}
+
+/*** Animations — Done: Project 9 ***/
+@keyframes highlightNew {
+    0%   { background-color: rgba(107, 143, 107, 0.4); }  /* moss green flash */
+    100% { background-color: transparent; }
+}
+
+.new-participant {
+    animation: highlightNew 1.5s ease-out forwards;
+    border-radius: 4px;
+}
+
+/*** Success Modal ***
+  Purpose:
+  - Full-screen overlay shown after a valid RSVP submission
+  - Contains personalized message and animated image
+  Done:
+  - [x] Project 9 (REQUIRED FEATURE)
+  - [x] Project 9 (STRETCH FEATURE) — Close button styled
 ***/
+.modal {
+    display: none;           /* hidden by default */
+    position: fixed;         /* stays put while page scrolls */
+    z-index: 2;              /* renders above everything else */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);   /* semi-transparent dark overlay */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-container {
+    position: relative;
+    background-color: var(--accent-color-light);
+    border: 2px solid var(--sand);
+    border-radius: 16px;
+    padding: 28px 24px 16px;
+    width: fit-content;
+    max-width: 380px;
+    min-width: 260px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.modal-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+}
+
+#modal-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin: 0 0 4px 0;
+}
+
+#modal-text {
+    font-size: 15px;
+    color: var(--text-color);
+    line-height: 1.5;
+    margin: 0 0 4px 0;
+}
+
+#modal-image {
+    width: 200px;
+    height: 200px;
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0;
+}
+
+/* Stretch: Close button pinned to top-right corner of modal */
+#close-modal-button {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background-color: transparent;
+    color: var(--stone);
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    line-height: 1;
+}
+
+#close-modal-button:hover {
+    color: var(--terracotta);
+    background-color: rgba(0, 0, 0, 0.06);
+}
 
 /*** Dark Mode — Done: Project 5 ***/
 html.dark-mode,
@@ -699,4 +967,18 @@ html.dark-mode,
 .dark-mode .badge-indoor {
     background-color: var(--moss);
     color: white;
+}
+
+.dark-mode .modal-container {
+    background-color: #243526;
+    border-color: #3a5a3c;
+}
+
+.dark-mode #modal-title,
+.dark-mode #modal-text {
+    color: #e8e2d5;
+}
+
+.dark-mode #reduce-motion-button {
+    background: var(--moss);
 }

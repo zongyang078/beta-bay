@@ -24,8 +24,7 @@
         Done:
         - [x] Project 4 (REQUIRED FEATURE)
         - [x] Project 5 (REQUIRED FEATURE)
-        TODO:
-        - [ ] Project 8 (STRETCH FEATURE)
+        - [x] Project 9 (STRETCH FEATURE) — added Reduce Motion button
         -->
         <div class="navbar">
             <ul>
@@ -34,6 +33,7 @@
                 <li><a href="#schedule">Event Schedule</a></li>
                 <li><a href="#links">Links</a></li>
                 <li><button id="theme-button">Toggle Dark Mode</button></li>
+                <li><button id="reduce-motion-button">Reduce Motion OFF</button></li>
             </ul>
         </div>
 
@@ -54,8 +54,8 @@
                 <h1>Beta Bay</h1>
                 <h3>Find Your Line. Meet Your Crew.</h3>
                 <div class="header-buttons">
-                    <button class="header-button" type="button">Join This Week</button>
-                    <button class="header-button" type="button">View Schedule</button>
+                    <a class="header-button" href="#rsvp">Join This Week</a>
+                    <a class="header-button" href="#schedule">View Schedule</a>
                 </div>
             </div>
         </div>
@@ -96,45 +96,87 @@
         -->
          <h2 id="schedule">Event Schedule</h2>
 
-        <div class="schedule-container">
-            <div class="schedule-card">
+        <div class="schedule-container fade-in">
+            <a class="schedule-card" href="https://maps.google.com/?q=Movement+Climbing+Sunnyvale+CA" target="_blank">
                 <img src="./img/movement-gym.jpg" alt="Movement Sunnyvale gym"/>
                 <h3>Sat 3/14 — Movement Sunnyvale</h3>
                 <span class="badge badge-indoor">Indoor</span>
                 <p>Bouldering session at Movement. All levels welcome. Rental shoes available at the front desk.</p>
-            </div>
-            <div class="schedule-card">
+                <span class="card-link">📍 View on Google Maps →</span>
+            </a>
+            <a class="schedule-card" href="https://maps.google.com/?q=Planet+Granite+Belmont+CA" target="_blank">
                 <img src="./img/planet-granite.jpg" alt="Planet Granite Belmont"/>
                 <h3>Sun 3/15 — Planet Granite Belmont</h3>
                 <span class="badge badge-indoor">Indoor</span>
                 <p>Top rope and lead climbing day. Belay certification required for rope climbing. Bouldering area open to all.</p>
-            </div>
-            <div class="schedule-card">
+                <span class="card-link">📍 View on Google Maps →</span>
+            </a>
+            <a class="schedule-card" href="https://www.mountainproject.com/area/105733881/castle-rock-state-park" target="_blank">
                 <img src="./img/castle-rock.jpg" alt="Castle Rock State Park"/>
                 <h3>Sat 3/21 — Castle Rock State Park</h3>
                 <span class="badge badge-outdoor">Outdoor</span>
                 <p>Outdoor bouldering trip! Bring your own crash pad if you have one. Helmets required. Carpool from Sunnyvale at 8am.</p>
+                <span class="card-link">📍 View on Mountain Project →</span>
+            </a>
+        </div>
+
+        <!-- safety & faq
+        Purpose:
+        - Safety requirements displayed as icon grid
+        - FAQ section addressing common questions
+        Done:
+        - [x] Project 9 (STRETCH FEATURE / Going Further)
+        -->
+
+        <!-- Safety icon grid -->
+        <h2>Safety &amp; Requirements</h2>
+        <div class="safety-grid fade-in">
+            <div class="safety-item">
+                <span class="safety-icon">👟</span>
+                <p>Climbing shoes required<br><small>Rentals available at gyms</small></p>
+            </div>
+            <div class="safety-item">
+                <span class="safety-icon">🪢</span>
+                <p>Belay cert needed<br><small>For top rope sessions</small></p>
+            </div>
+            <div class="safety-item">
+                <span class="safety-icon">⛑️</span>
+                <p>Helmet required outdoors<br><small>Plus signed waiver</small></p>
+            </div>
+            <div class="safety-item">
+                <span class="safety-icon">💧</span>
+                <p>Bring water &amp; chalk<br><small>And a good attitude</small></p>
+            </div>
+            <div class="safety-item">
+                <span class="safety-icon">🧗</span>
+                <p>All levels welcome<br><small>Experienced climbers on-site</small></p>
             </div>
         </div>
 
-        <!-- Locations section -->
-        <h2>Locations</h2>
-        <p>We climb at these spots around the Bay Area:</p>
-        <ul>
-            <li><b>Movement Climbing Gym</b> — Sunnyvale. Great for bouldering and top rope.</li>
-            <li><b>Planet Granite</b> — Belmont. Old-school gym with a strong community vibe.</li>
-            <li><b>Castle Rock State Park</b> — Classic Bay Area outdoor bouldering on real rock.</li>
-        </ul>
-
-        <!-- Safety & Requirements section -->
-        <h2>Safety &amp; Requirements</h2>
-        <ul>
-            <li>Climbing shoes required (rentals available at gyms)</li>
-            <li>Harness and belay certification needed for top rope sessions</li>
-            <li>Outdoor sessions require a signed waiver and a helmet</li>
-            <li>Beginners welcome — experienced climbers will be on-site to help</li>
-            <li>Bring water, chalk, and a good attitude</li>
-        </ul>
+        <!-- FAQ -->
+        <h2>FAQ</h2>
+        <div class="faq-container fade-in">
+            <details class="faq-item">
+                <summary>Do I need to be an experienced climber?</summary>
+                <p>Not at all! Beta Bay welcomes everyone from complete beginners to seasoned crushers. We always have experienced climbers on-site ready to share tips and help you get started.</p>
+            </details>
+            <details class="faq-item">
+                <summary>What gear do I need to bring?</summary>
+                <p>For gym sessions, just show up — rental shoes are available at the front desk. For outdoor trips, bring climbing shoes, a helmet, and water. Crash pads are a bonus but not required.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Is there a membership or fee?</summary>
+                <p>No membership required to join Beta Bay meetups. Gym entry fees apply at indoor venues (typically $15–25), and outdoor sessions are free. We'll always post the details in advance.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How do I get to outdoor sessions?</summary>
+                <p>We organize carpools from Sunnyvale before each outdoor trip. Sign up via RSVP and we'll coordinate pickup details over email closer to the date.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I bring a friend who hasn't climbed before?</summary>
+                <p>Absolutely — the more the merrier. Just have them RSVP so we can plan accordingly. First-timers get a quick orientation at the start of each session.</p>
+            </details>
+        </div>
 
         <!-- rsvp
         Purpose:
@@ -144,8 +186,11 @@
         Done:
         - [x] Project 6 (REQUIRED FEATURE)
         - [x] Project 6 (STRETCH FEATURE)
+        - [x] Project 7 (REQUIRED FEATURE)
+        - [x] Project 7 (STRETCH FEATURE)
+        - [x] Project 9 (REQUIRED FEATURE)
         -->
-        <div id="rsvp">
+        <div id="rsvp" class="fade-in">
             <h2>RSVP</h2>
             <p id="rsvp-count">🧗 3 climbers are signed up!</p>
             <div class="rsvp-container">
@@ -182,9 +227,25 @@
         </div>
 
         <!-- success modal
-        TODO:
-        - [ ] Project 9 (REQUIRED FEATURE)
+        Purpose:
+        - Modal overlay that appears after a valid RSVP submission
+        - Shows a personalized thank-you message and an animated image
+        Done:
+        - [x] Project 9 (REQUIRED FEATURE)
+        - [x] Project 9 (STRETCH FEATURE) — Close button
         -->
+        <div id="success-modal" class="modal">
+            <div class="modal-container">
+                <button id="close-modal-button">✕</button>
+                <div class="modal-item">
+                    <p id="modal-title">🧗 RSVP Confirmed!</p>
+                    <p id="modal-text">Thanks for signing up!</p>
+                </div>
+                <div class="modal-item">
+                    <img id="modal-image" src="./img/logo-betabay.svg" alt="Beta Bay logo waving">
+                </div>
+            </div>
+        </div>
 
         <!-- links
         Purpose:
@@ -195,7 +256,7 @@
         -->
         <h2 id="links">Links</h2>
 
-        <div class="links-container">
+        <div class="links-container fade-in">
             <a class="block" href="https://www.mountainproject.com/area/105733881/castle-rock-state-park">
                 <article>
                     <h3>Castle Rock on Mountain Project</h3>
