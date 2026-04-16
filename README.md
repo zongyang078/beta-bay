@@ -2,7 +2,7 @@
 
 A climbing community event website for Bay Area climbers — built as a fully static, interactive single-page site with vanilla HTML, CSS, and JavaScript.
 
-![Hero Section](./img/screenshots/hero.png)
+![Hero Section](.screenshots/hero.png)
 
 ---
 
@@ -40,12 +40,12 @@ The site is intentionally built without frameworks or build tools to demonstrate
 
 | | |
 |---|---|
-| ![Schedule](./img/screenshots/schedule.png) | ![RSVP Modal](./img/screenshots/modal.png) |
+| ![Schedule](.screenshots/schedule.png) | ![RSVP Modal](.screenshots/modal.png) |
 | Schedule cards with hover + Maps links | RSVP success modal with animation |
 
 | | |
 |---|---|
-| ![FAQ](./img/screenshots/faq.png) | ![Dark Mode](./img/screenshots/dark-mode.png) |
+| ![FAQ](.screenshots/faq.png) | ![Dark Mode](.screenshots/dark-mode.png) |
 | FAQ accordion | Dark mode |
 
 ---
